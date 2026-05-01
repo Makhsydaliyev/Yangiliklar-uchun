@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QOVUN TUSHDI | YANGILIKLAR</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top maxsus-menyu">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+            <i class="fas fa-bolt text-info me-2"></i>QOVUN TUSHDI<span class="text-info">NEWS</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav-qismlari">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav-qismlari">
+            <ul class="navbar-nav ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link px-3" href="#asosiy">Asosiy</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#jahon">Jahon</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#sport">Sport</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#texno">Texno</a></li>
+                <li class="nav-item"><a class="nav-link px-3" href="#ozbek">O'zbek</a></li>
+                <li class="nav-item ms-lg-3">
+                    <button class="btn btn-info btn-sm rounded-pill px-4 text-white fw-bold shadow-sm" onclick="adminPanelniOchish()">
+                        <i class="fas fa-user-shield me-2"></i>Admin
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="asosiy" class="container my-4">
+    <div id="asosiy-yangilik-maydoni">
+        </div>
+</section>
+
+<main class="container">
+    <div class="row">
+        <section id="jahon" class="col-12 mt-5">
+            <h3 class="bolim-sarlavhasi border-danger">Jahon Yangiliklari</h3>
+            <div class="row" id="jahon-qutisi"></div>
+        </section>
+
+        <section id="sport" class="col-12 mt-5">
+            <h3 class="bolim-sarlavhasi border-primary">Sport</h3>
+            <div class="row" id="sport-qutisi"></div>
+        </section>
+
+        <section id="texno" class="col-12 mt-5 mb-5">
+            <h3 class="bolim-sarlavhasi border-success">Texnologiya</h3>
+            <div class="row" id="texno-qutisi"></div>
+        </section>
+        
+        <section id="ozbek" class="col-12 mt-5">
+            <h3 class="bolim-sarlavhasi border-primary">O'zbekiston</h3>
+            <div class="row" id="ozbek-qutisi"></div>
+        </section>
+    </div>
+</main>
+
+<div class="modal fade" id="yangilikOynasi" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content" id="oyna-ichki-qismi">
+            </div>
+    </div>
+</div>
+
+<section id="admin-boshqaruvi" class="container my-5 d-none bg-white p-4 rounded shadow">
+    <h2 class="text-center mb-4">Yangiliklar Boshqaruvi</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Yangi qo'shish / Tahrirlash</h4>
+            <input type="hidden" id="tahrir-id">
+            <input type="text" id="y-sarlavha" class="form-control mb-2" placeholder="Sarlavha">
+            <select id="y-toifa" class="form-control mb-2">
+                <option value="jahon">Jahon</option>
+                <option value="sport">Sport</option>
+                <option value="texno">Texnologiya</option>
+                <option value="ozbek">O'zbekiston</option>
+            </select>
+            <input type="text" id="y-rasm" class="form-control mb-2" placeholder="Rasm URL">
+            <textarea id="y-matn" class="form-control mb-2" rows="4" placeholder="To'liq matn"></textarea>
+            <button class="btn btn-yashil w-100" onclick="yangilikniSaqlash()">Saqlash</button>
+        </div>
+        <div class="col-md-8">
+            <h4>Mavjud yangiliklar</h4>
+            <div class="table-responsive" style="max-height: 400px;">
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Sarlavha</th>
+                            <th>Kategoriya</th>
+                            <th>Amallar</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-jadval-tanasi"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
